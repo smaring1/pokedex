@@ -15,12 +15,12 @@ jobs:
     - uses: actions/checkout@v3
     - name: docker login
       env:
-        DOCKER_USER: ${{secrets.DOCKERHUB_USER}}
-        DOCKER_PASS: ${{secrets.DOCKERHUB_PASSWORD}}
+        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_PASS: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
     - name: Build the Docker image
-      run: docker build --file Dockerfile --tag simonmaring/pokedex:latest .
+      run: docker build . --file Dockerfile --tag simonmaring/pokedex:latest
     - name: Docker Push
       run: docker push simonmaring/pokedex:latest
 
