@@ -23,3 +23,4 @@ jobs:
       run: docker build --file Dockerfile --tag simonmaring/pokedex:latest .
     - name: Docker Push
       run: docker push simonmaring/pokedex:latest
+
