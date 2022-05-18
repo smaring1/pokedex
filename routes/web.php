@@ -17,8 +17,14 @@ $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/index', [
+$router->get('/neas', [
+    'as' => 'findAll', 'uses' => 'NeaController@findAll'
+]);
 
-    'as' => 'index', 'uses' => 'HomeController@index'
+$router->get('/neas/random', [
+    'as' => 'getRandom', 'uses' => 'NeaController@getRandom'
+]);
 
+$router->get('/neas/randomView', [
+    'as' => 'getRandomWithView', 'uses' => 'NeaController@getRandomWithView'
 ]);
